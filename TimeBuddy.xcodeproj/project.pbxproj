@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		965D4E55291124E1008C8065 /* TimeZone-FormattedName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965D4E54291124E1008C8065 /* TimeZone-FormattedName.swift */; };
 		96CAB5F42910FDED00C7F5D8 /* TimeBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAB5F32910FDED00C7F5D8 /* TimeBuddyApp.swift */; };
 		96CAB5F62910FDED00C7F5D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAB5F52910FDED00C7F5D8 /* ContentView.swift */; };
 		96CAB5F82910FDED00C7F5D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96CAB5F72910FDED00C7F5D8 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		965D4E54291124E1008C8065 /* TimeZone-FormattedName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeZone-FormattedName.swift"; sourceTree = "<group>"; };
 		96CAB5F02910FDED00C7F5D8 /* TimeBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CAB5F32910FDED00C7F5D8 /* TimeBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBuddyApp.swift; sourceTree = "<group>"; };
 		96CAB5F52910FDED00C7F5D8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				96CAB5F32910FDED00C7F5D8 /* TimeBuddyApp.swift */,
 				96CAB5F52910FDED00C7F5D8 /* ContentView.swift */,
 				96CAB6022910FEC200C7F5D8 /* AppDelegate.swift */,
+				965D4E54291124E1008C8065 /* TimeZone-FormattedName.swift */,
 				96CAB5F72910FDED00C7F5D8 /* Assets.xcassets */,
 				96CAB5FC2910FDED00C7F5D8 /* TimeBuddy.entitlements */,
 				96CAB5F92910FDED00C7F5D8 /* Preview Content */,
@@ -144,6 +147,7 @@
 			files = (
 				96CAB6032910FEC200C7F5D8 /* AppDelegate.swift in Sources */,
 				96CAB5F62910FDED00C7F5D8 /* ContentView.swift in Sources */,
+				965D4E55291124E1008C8065 /* TimeZone-FormattedName.swift in Sources */,
 				96CAB5F42910FDED00C7F5D8 /* TimeBuddyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
