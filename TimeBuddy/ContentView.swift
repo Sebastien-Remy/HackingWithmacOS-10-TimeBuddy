@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var timeZones = [String]()
     @State private var newTimeZone = "GMT"
     @State private var selectedTimeZones = Set<String>()
+    @State private var showingAlert = false
     
     var body: some View {
         VStack {
@@ -21,32 +22,46 @@ struct ContentView: View {
             } else {
                 List (selection: $selectedTimeZones) {
                     ForEach(timeZones, id: \.self) { timeZone in
-                        Text(timeZone)
+                        Text("\((TimeZone(identifier:timeZone) != nil) ? (TimeZone(identifier:timeZone)!.formattedName) : "Unknow").")
+                                .tag(timeZone)
+                                .contextMenu {
+                                    Button("Remove", role: .destructive) {
+                                        deleteItems()
+                                    }
+                                }
                     }
                     .onMove(perform: moveItems)
                 }
                 .onDeleteCommand(perform: deleteItems)
+                
             }
             HStack {
                 Picker("Add Time Zone", selection: $newTimeZone) {
-                    //                    ForEach(TimeZone.knownTimeZoneIdentifiers, id:\.self) { timeZone in
-                    //                        Text(timeZone)
-                    //                    }
-                    // More concise code
-                    ForEach(TimeZone.knownTimeZoneIdentifiers, id:\.self, content: Text.init)
+                    ForEach(TimeZone.knownTimeZoneIdentifiers, id:\.self) { timeZone in
+                        if (TimeZone(identifier:timeZone) != nil) {
+                            Text("\(TimeZone(identifier:timeZone)!.formattedName).")
+                        } else {
+                            Text(timeZone)
+                        }
+                    }
                 }
                 Button("Add") {
                     if timeZones.contains(newTimeZone) == false {
                         withAnimation {
                             timeZones.append(newTimeZone)
                         }
+                        save()
+                    } else {
+                        showingAlert = true
                     }
-                    save()
                 }
             }
+            .padding()
+            .onAppear(perform: load)
+            .alert("You already add \(newTimeZone) in your buddy list !", isPresented: $showingAlert) {
+                Button("Ok") {showingAlert = false }
+            }
         }
-        .padding()
-        .onAppear(perform: load)
     }
     
     func load() {
