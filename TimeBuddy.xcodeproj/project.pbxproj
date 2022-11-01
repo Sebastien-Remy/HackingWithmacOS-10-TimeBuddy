@@ -11,6 +11,7 @@
 		96CAB5F62910FDED00C7F5D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAB5F52910FDED00C7F5D8 /* ContentView.swift */; };
 		96CAB5F82910FDED00C7F5D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96CAB5F72910FDED00C7F5D8 /* Assets.xcassets */; };
 		96CAB5FB2910FDED00C7F5D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96CAB5FA2910FDED00C7F5D8 /* Preview Assets.xcassets */; };
+		96CAB6032910FEC200C7F5D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAB6022910FEC200C7F5D8 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		96CAB5F72910FDED00C7F5D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96CAB5FA2910FDED00C7F5D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		96CAB5FC2910FDED00C7F5D8 /* TimeBuddy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimeBuddy.entitlements; sourceTree = "<group>"; };
+		96CAB6022910FEC200C7F5D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				96CAB5F32910FDED00C7F5D8 /* TimeBuddyApp.swift */,
 				96CAB5F52910FDED00C7F5D8 /* ContentView.swift */,
+				96CAB6022910FEC200C7F5D8 /* AppDelegate.swift */,
 				96CAB5F72910FDED00C7F5D8 /* Assets.xcassets */,
 				96CAB5FC2910FDED00C7F5D8 /* TimeBuddy.entitlements */,
 				96CAB5F92910FDED00C7F5D8 /* Preview Content */,
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96CAB6032910FEC200C7F5D8 /* AppDelegate.swift in Sources */,
 				96CAB5F62910FDED00C7F5D8 /* ContentView.swift in Sources */,
 				96CAB5F42910FDED00C7F5D8 /* TimeBuddyApp.swift in Sources */,
 			);
@@ -197,6 +201,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -251,6 +256,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -274,6 +280,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TimeBuddy/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -301,6 +308,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TimeBuddy/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
