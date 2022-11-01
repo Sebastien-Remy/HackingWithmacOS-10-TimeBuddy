@@ -11,6 +11,7 @@ struct ContentView: View {
     
     @State private var timeZones = [String]()
     @State private var newTimeZone = "GMT"
+    @State private var selectedTimeZones = Set<String>()
     
     var body: some View {
         VStack {
@@ -18,32 +19,53 @@ struct ContentView: View {
                 Text("Please add your first time zone bellow")
                     .frame(maxHeight: .infinity)
             } else {
-                List {
+                List (selection: $selectedTimeZones) {
                     ForEach(timeZones, id: \.self) { timeZone in
                         Text(timeZone)
                     }
+                    .onMove(perform: moveItems)
                 }
+                .onDeleteCommand(perform: deleteItems)
             }
             HStack {
                 Picker("Add Time Zone", selection: $newTimeZone) {
-//                    ForEach(TimeZone.knownTimeZoneIdentifiers, id:\.self) { timeZone in
-//                        Text(timeZone)
-//                    }
+                    //                    ForEach(TimeZone.knownTimeZoneIdentifiers, id:\.self) { timeZone in
+                    //                        Text(timeZone)
+                    //                    }
                     // More concise code
                     ForEach(TimeZone.knownTimeZoneIdentifiers, id:\.self, content: Text.init)
                 }
                 Button("Add") {
-                if timeZones.contains(newTimeZone) == false {
-                    withAnimation {
-                        timeZones.append(newTimeZone)
-            
+                    if timeZones.contains(newTimeZone) == false {
+                        withAnimation {
+                            timeZones.append(newTimeZone)
+                        }
                     }
-                    
-                }
+                    save()
                 }
             }
         }
         .padding()
+        .onAppear(perform: load)
+    }
+    
+    func load() {
+        timeZones = UserDefaults.standard.stringArray(forKey: "TimeZones") ?? []
+    }
+    
+    func save() {
+        UserDefaults.standard.set(timeZones, forKey: "TimeZones")
+    }
+    
+    func deleteItems() {
+        withAnimation {
+            timeZones.removeAll(where: selectedTimeZones.contains)
+        }
+        save()
+    }
+    
+    func moveItems(from source: IndexSet, to destination: Int) {
+        timeZones.move(fromOffsets: source, toOffset: destination)
     }
 }
 
