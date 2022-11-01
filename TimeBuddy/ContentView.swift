@@ -8,13 +8,40 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var timeZones = [String]()
+    @State private var newTimeZone = "GMT"
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            if timeZones.isEmpty {
+                Text("Please add your first time zone bellow")
+                    .frame(maxHeight: .infinity)
+            } else {
+                List {
+                    ForEach(timeZones, id: \.self) { timeZone in
+                        Text(timeZone)
+                    }
+                }
+            }
+            HStack {
+                Picker("Add Time Zone", selection: $newTimeZone) {
+//                    ForEach(TimeZone.knownTimeZoneIdentifiers, id:\.self) { timeZone in
+//                        Text(timeZone)
+//                    }
+                    // More concise code
+                    ForEach(TimeZone.knownTimeZoneIdentifiers, id:\.self, content: Text.init)
+                }
+                Button("Add") {
+                if timeZones.contains(newTimeZone) == false {
+                    withAnimation {
+                        timeZones.append(newTimeZone)
+            
+                    }
+                    
+                }
+                }
+            }
         }
         .padding()
     }
